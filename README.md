@@ -76,7 +76,9 @@ python3 /path/to/script/net_alarm.py
 ```
 OR:
 
-Run as a service. Update the path to the script along with any other settings and copy to the file:
+Run as a service. Update the system specific settings. 
+Access to gpio will be needed, so it is recommended to designate a non-root user/group.
+
 ```bash
 sudo nano /etc/systemd/system/net_alarm.service
 
@@ -89,14 +91,14 @@ After=gpiod.service
 
 [Service]
 ExecStart=/usr/bin/python3 -u /path/to/script/net_alarm.py # update path/to/script
-WorkingDirectory=/mnt/dietpi_userdata
+WorkingDirectory=/path/to/script/ # update to script directory
 StandardOutput=journal
 StandardError=journal
 Restart=always
 RestartSec=5
 
-User=root
-Group=root
+User=root # update to non-root user if needed
+Group=root # update to non-root group if needed
 
 [Install]
 WantedBy=multi-user.target
@@ -118,7 +120,7 @@ sudo systemctl start net_alarm.service
 ---
 ### Supervision
 
-You might want to supervise the program itself to ensure that it is performing period checks.
+You might want to supervise the program itself to ensure that it is performing periodic checks.
 [Uptime-Kuma](https://github.com/louislam/uptime-kuma) is a highly recommended monitoring system with a lot of great functionality.
 Once installed, you can create a "Push" device which accepts requests to a generated url.  
 If you provide this url to the network alarm program under the variable `uptime_kuma_push_url`, it will send a heartbeat with every periodic internet check.

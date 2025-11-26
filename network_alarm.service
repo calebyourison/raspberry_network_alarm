@@ -6,14 +6,14 @@ After=gpiod.service
 
 [Service]
 ExecStart=/usr/bin/python3 -u /path/to/script/net_alarm.py # update path/to/script
-WorkingDirectory=/mnt/dietpi_userdata
+WorkingDirectory=/path/to/script/ # update to script directory
 StandardOutput=journal
 StandardError=journal
 Restart=always
 RestartSec=5
 
-User=root
-Group=root
+User=root # update to non-root user if needed
+Group=root # update to non-root group if needed
 
 [Install]
 WantedBy=multi-user.target
