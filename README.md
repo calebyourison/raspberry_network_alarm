@@ -7,6 +7,7 @@ It has been tested on `DietPi` using a Raspberry Pi 3 B+.
 
 By incorporating a relay module, the Pi can interact with a traditional alarm system and other peripherals.
 An ideal situation would be an unmonitored alarm system that only sounds off locally.
+
 ---
 **If interfacing with a live alarm system, ensure that you have permission to do so.  
 A network outage SHOULD NOT trigger an active alarm, but rather only a supervision/trouble/log signal. 
@@ -16,7 +17,6 @@ False alarms can result in fines from local authorities**
 
 **This Project is not responsible for any consequences that arise from false alarms. 
 Do not interface with a live alarm system unless you know fully understand the potential consequences.**
-
 ---
 
 ## Getting Started
@@ -30,7 +30,7 @@ Please reference the following diagram:
 
 ![My plot](diagram.jpg)
 
-The system is designed to trigger a 4 different Form C relays via a few common GPIO pins.
+The system is designed to trigger 4 different Form C relays via a few common GPIO pins.
 
 **Employ appropriate resistors for any peripherals that require them.**
 
@@ -74,7 +74,7 @@ Copy the `net_alarm.py` to a desired folder and modify the variables if needed.
 
 You can start the program via:
 ```bash
-python3 /path/to/script/network_alarm.py
+python3 /path/to/script/net_alarm.py
 ```
 OR:
 
@@ -123,7 +123,7 @@ sudo systemctl start net_alarm.service
 You might want to supervise the program itself to ensure that it is performing period checks.
 [Uptime-Kuma](https://github.com/louislam/uptime-kuma) is a highly recommended monitoring system with a lot of great functionality.
 Once installed, you can create a "Push" device which accepts requests to a generated url.  
-If you provide this url to the network alarm program under the variable `uptime_kuma_push_url`, it will send a heartbeat with every period internet check.
+If you provide this url to the network alarm program under the variable `uptime_kuma_push_url`, it will send a heartbeat with every periodic internet check.
 
 ### Logging
 Set `VERBOSE` to True for additional logging messages if needed.
