@@ -16,12 +16,10 @@ False alarms can result in fines from local authorities**
 **This Project is not responsible for any damage that occurs due to improper wiring configuration or failure to safely handle electronic components.**
 
 **This Project is not responsible for any consequences that arise from false alarms. 
-Do not interface with a live alarm system unless you know fully understand the potential consequences.**
+Do not interface with a live alarm system unless you fully understand the potential consequences.**
 ---
 
 ## Getting Started
-
-
 
 ### Hardware
 
