@@ -21,7 +21,7 @@ Do not interface with a live alarm system unless you know fully understand the p
 
 ## Getting Started
 
-___
+
 
 ### Hardware
 
