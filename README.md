@@ -3,7 +3,7 @@
 ---
 
 This is a hardware project designed primarily to monitor external internet access via the Pi's network interface and conditionally trigger GPIO pins.
-It has been tested on `DietPi` using a Raspberry Pi 3 B+.
+It has been deployed on [DietPi](https://dietpi.com/) using a Raspberry Pi 3 B+.
 
 By incorporating a relay module, the Pi can interact with a traditional alarm system and other peripherals.
 An ideal situation would be an unmonitored alarm system that only sounds off locally.
@@ -24,11 +24,11 @@ Do not interface with a live alarm system unless you fully understand the potent
 ### Hardware
 
 Please reference the following diagram:
-(Image Credit: [raspberrypi.com](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#gpio)) 
+(Image Credit: [raspberrypi.com](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#gpio))
 
 ![My plot](diagram.jpg)
 
-The system is designed to trigger 4 different Form C relays via a few common GPIO pins.
+The system is designed to trigger 4 different Form C relays via a few common GPIO pins, though it's possible to include fewer or more.
 
 **Employ appropriate resistors for any peripherals that require them.**
 
@@ -61,7 +61,7 @@ ___
 Beyond the standard Python library, this project will require `requests`.  A GPIO library might be installed by default on your OS. 
 If using Dietpi, you can install a GPIO package via `dietpi-software`.  This project invokes the older import statement `import RPi.GPIO as GPIO`, to attempt compatibility with more systems.  Please amend as needed.
 
-Install `request` system-wide.
+Install `requests` system-wide.
 
 ```bash
 sudo apt update

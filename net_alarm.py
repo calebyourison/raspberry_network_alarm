@@ -6,18 +6,18 @@ import logging
 
 # Set Variables
 
-# URLs
+### URLS ###
 
 # ALL urls must fail to trigger a trouble. Fewer urls results in a faster overall process but might create false positives.
 internet_urls: list[str] = [
     "https://www.google.com",
-    "https://www.cloudflare.com"
+    "https://www.cloudflare.com",
 ]
 
 # If set, system will send a heartbeat to a local uptime-kuma push device to check network_alarm uptime
 uptime_kuma_push_url: str|None = None
 
-# Intervals
+### INTERVALS ###
 
 # Frequency to check websites
 internet_check_interval: int = 60
@@ -26,7 +26,8 @@ reset_output_threshold: int = 10
 # Number of seconds to trigger a reset prior to restore
 reset_output_trigger_time: int = 15
 
-# Pins
+### GPIO PINS ###
+
 # Add or modify as needed
 # Additional pins should be added to appropriate groups
 
@@ -35,17 +36,28 @@ red_led: tuple[str, int] = ("Red LED", 27)
 trouble_zone: tuple[str, int] = ("Trouble Supervisory Zone", 22)
 reset_output: tuple[str, int] = ("Reset Output", 23)
 
-# Groups
+### TRIGGER GROUPS ###
+
 # Triggered on a single failed request
-trouble_pins: list[tuple[str, int]] = [green_yellow_led, trouble_zone]
+trouble_pins: list[tuple[str, int]] = [
+    green_yellow_led,
+    trouble_zone
+]
+
 # Triggered after reaching the reset_output_threshold
-extended_trouble_pins: list[tuple[str, int]] = [red_led]
+extended_trouble_pins: list[tuple[str, int]] = [
+    red_led
+]
 # Triggered for the reset_output_trigger_time every multiple of the reset_output_threshold
-reset_pins: list[tuple[str, int]] = [reset_output]
+reset_pins: list[tuple[str, int]] = [
+    reset_output
+]
 
 all_pins: list[tuple[str, int]] = trouble_pins + extended_trouble_pins + reset_pins
 
-# Optional verbose output
+### OPTIONAL VERBOSE OUTPUT ###
+
+# Setting to True will enable logging
 VERBOSE = False
 
 logger = logging.getLogger(__name__)
